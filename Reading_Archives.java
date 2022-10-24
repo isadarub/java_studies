@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class Archive_Manipulation {
+public class Reading_Archives {
   public static void main(String[] args) {
     // endereço >> linha
     // informações >> colunas
@@ -10,6 +10,8 @@ public class Archive_Manipulation {
     Scanner Entrada = new Scanner(System.in);
     Scanner Entrada1 = new Scanner(System.in);
     String[][] address = new String[linhas][colunas];
+
+    String pausa;
 
     // l for lines, c for columns
     int l, c;
@@ -25,8 +27,11 @@ public class Archive_Manipulation {
       address[l][3] = Entrada.nextLine();
     }
 
+    System.out.println("Endereços informados");
+    pausa = Entrada.next();
+
     try {
-      FileWriter archive = new FileWriter("C:\\home\\isadarub\\Área de Trabalho\\treinos_Java\\archives2.json");
+      FileWriter archive = new FileWriter("C:\\home\\isadarub\\Área de Trabalho\\treinos_Java\\archives2.txt", true);
       PrintWriter saveArchive = new PrintWriter(archive);
 
       for (l = 0; l < linhas; l++) {
@@ -34,6 +39,7 @@ public class Archive_Manipulation {
         for (c = 0; c < colunas; c++) {
           saveArchive.print(" " + address[l][c].toUpperCase());
         }
+        System.out.println("");
       }
       saveArchive.close();
       archive.close();
@@ -42,5 +48,30 @@ public class Archive_Manipulation {
     }
 
     System.out.println("Programa finalizado.");
+    pausa = Entrada.next();
+
+    // criar objeto
+    // criar buffer
+    // try catch
+    // ler uma linha por vez
+    // imprimir uma linha por vez
+    // fechar arquivo e buffer
+    try {
+      FileReader readArchive = new FileReader("C:\\home\\isadarub\\Área de Trabalho\\treinos_Java\\archives2.txt");
+      BufferedReader bufferReading = new BufferedReader(readArchive);
+
+      String linha;
+      linha = bufferReading.readLine();
+
+      while (linha != null) {
+        System.out.println(linha);
+        linha = bufferReading.readLine();
+      }
+
+      readArchive.close();
+      bufferReading.close();
+    } catch (IOException e) {
+      System.out.println("Error! Can't read document.");
+    }
   }
 }
