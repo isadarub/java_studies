@@ -1,15 +1,54 @@
 package OOP_Class1;
 
 public class Person {
-  public int id;
-  public String CPF;
-  public String name;
-  public double height;
-  public double weight;
-  public int year_of_birth;
+  private int id;
+  private String CPF;
+  private String name;
+  private double height;
+  private double weight;
 
   public Person(int id) {
     this.id = id;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
+
+  public String getCPF() {
+    return CPF;
+  }
+
+  public void setCPF(String cPF) {
+    CPF = cPF;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public double getHeight() {
+    return height;
+  }
+
+  public void setHeight(double height) {
+    this.height = height;
+  }
+
+  public double getWeight() {
+    return weight;
+  }
+
+  public void setWeight(double weight) {
+    this.weight = weight;
   }
 
   public Person(int id, String CPF, String name, double height, double weight) {
